@@ -11,11 +11,11 @@
 		"postinstall": "vibe-rules install cursor"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250620.0",
-		"@types/node": "^24.0.3",
-		"miniflare": "^4.20250617.3",
-		"typescript": "^5.8.3",
-		"vibe-rules": "^0.3.50"
+		"@cloudflare/workers-types": "^4.20250909.0",
+		"@types/node": "^24.3.1",
+		"miniflare": "^4.20250906.0",
+		"typescript": "^5.9.2",
+		"vibe-rules": "^0.3.91"
 	},
 	"dependencies": {
 		"alchemy": "https://pkg.pr.new/sam-goodwin/alchemy@2d0ee03"

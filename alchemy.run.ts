@@ -4,10 +4,14 @@ import alchemy from "alchemy";
 import { KVNamespace, Worker, WranglerJson } from "alchemy/cloudflare";
 import { CloudflareStateStore } from "alchemy/state";
 
+
 const app = await alchemy("worker-w-cache", {
 	stateStore: (scope) => new CloudflareStateStore(scope, {}),
 	password: process.env.SECRET_PASSPHRASE,
 });
+
+const apiKey = alchemy.secret("Some Secret Key");
+
 
 export const worker = await Worker("worker", {
 	name: "worker-w-cache",
