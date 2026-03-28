@@ -1,37 +1,37 @@
 name: Publish
 
 on:
-  push:
-    branches: [main]
+   push:
+      branches: [main]
 
 # Ensure only one workflow runs at a time
 concurrency:
-  group: "publish"
-  cancel-in-progress: false
+   group: "publish"
+   cancel-in-progress: false
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
+   publish:
+      runs-on: ubuntu-latest
+      permissions:
+         contents: read
+      steps:
+         - uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
+         - name: Setup Bun
+           uses: oven-sh/setup-bun@v1
+           with:
+              bun-version: latest
 
-      - name: Install dependencies
-        shell: bash
-        run: bun install
+         - name: Install dependencies
+           shell: bash
+           run: bun install
 
-      - name: Deploy to Production
-        run: bun run deploy
-        env:
-          STAGE: prod
-          GITHUB_SHA: ${{ github.sha }}
-          ALCHEMY_PASSWORD: ${{ secrets.ALCHEMY_PASSWORD }}
-          ALCHEMY_STATE_TOKEN: ${{ secrets.ALCHEMY_STATE_TOKEN }}  
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+         - name: Deploy to Production
+           run: bun run deploy
+           env:
+              STAGE: prod
+              GITHUB_SHA: ${{ github.sha }}
+              ALCHEMY_PASSWORD: ${{ secrets.ALCHEMY_PASSWORD }}
+              ALCHEMY_STATE_TOKEN: ${{ secrets.ALCHEMY_STATE_TOKEN }}
+              CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+              CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

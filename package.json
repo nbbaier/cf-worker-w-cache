@@ -18,6 +18,7 @@
 		"vibe-rules": "^0.3.91"
 	},
 	"dependencies": {
-		"alchemy": "https://pkg.pr.new/sam-goodwin/alchemy@2d0ee03"
+		"alchemy": "https://pkg.pr.new/sam-goodwin/alchemy@2d0ee03",
+		"zod": "^4.3.6"
 	}
 }
